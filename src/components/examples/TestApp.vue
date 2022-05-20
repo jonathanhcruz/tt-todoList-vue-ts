@@ -6,7 +6,7 @@
     </label>
     <div>{{ computedMsg }}</div>
     <div>APPID: {{ idApp }}</div>
-    <button @click="changeState()">vamos a ver</button>
+    <button @click="changeState()">Vamos a ver</button>
   </div>
 </template>
 
