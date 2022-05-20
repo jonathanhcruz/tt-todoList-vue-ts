@@ -1,5 +1,5 @@
 export default {
-    updateIdApp(state:any, id:number) {
-        state.idApp = id;
-    }
-}
+  updateIdApp(state: any, id: number) {
+    state.idApp = id;
+  },
+};

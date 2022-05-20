@@ -1,3 +1,3 @@
 export default {
-    idApp: 3333,
-}
+  idApp: 3333,
+};

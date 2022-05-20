@@ -1,22 +1,22 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import ToDoView from '../views/ToDoView.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import ToDoView from "../views/ToDoView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'all',
-    component: ToDoView
+    path: "/",
+    name: "all",
+    component: ToDoView,
   },
   {
-    path: '/:filter',
-    name: 'filter',
-    component: ToDoView
-  }
-]
+    path: "/:filter",
+    name: "filter",
+    component: ToDoView,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

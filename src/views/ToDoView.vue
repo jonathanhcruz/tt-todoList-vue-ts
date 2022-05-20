@@ -1,22 +1,25 @@
 <template>
   <div class="todoapp">
     <h1>Todos</h1>
-    <input type="text" placeholder="what chores do you have to do?" class="new-todo" @blur="printEvent" >     
+    <input
+      type="text"
+      placeholder="what chores do you have to do?"
+      class="new-todo"
+      @blur="printEvent"
+    />
 
     <div class="main">
-      <div class="toggle-all">
-      </div>
+      <div class="toggle-all"></div>
       <label for=""></label>
 
       <div class="todo-list">
         <ul>
           <li class="">
             <div class="view">
-                <input class="toggle" type="checkbox">
-                <label>Buy milk</label>
+              <input class="toggle" type="checkbox" />
+              <label>Buy milk</label>
             </div>
-            <input class="edit" value="Buy milk">
-
+            <input class="edit" value="Buy milk" />
 
             <!-- <div class="toggle"></div>
             <label for="">hola</label> -->
@@ -25,19 +28,19 @@
           </li>
           <li>
             <div class="view">
-              <input class="toggle" type="checkbox">
+              <input class="toggle" type="checkbox" />
               <label>Buy milk</label>
             </div>
-            <input class="edit" value="Buy milk">
+            <input class="edit" value="Buy milk" />
 
             <div class="destroy"></div>
           </li>
           <li class="completed">
             <div class="view">
-              <input class="toggle" type="checkbox">
+              <input class="toggle" type="checkbox" />
               <label>Buy milk</label>
             </div>
-            <input class="edit" value="Buy milk">
+            <input class="edit" value="Buy milk" />
 
             <div class="destroy"></div>
           </li>
@@ -48,15 +51,12 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { Options, Vue } from "vue-class-component";
 
 @Options({
-  components: {
-
-  },
+  components: {},
 })
 export default class ToDoView extends Vue {
-
   printEvent(event: any) {
     console.log(event);
   }
