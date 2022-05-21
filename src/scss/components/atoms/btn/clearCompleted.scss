@@ -1,0 +1,13 @@
+.clear-completed {
+	&,
+	&:hover {
+		color: inherit;
+		float: right;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
