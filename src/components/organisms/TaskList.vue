@@ -1,55 +1,24 @@
 <template>
-  <div class="toggle-all"></div>
-  <label for=""></label>
-
   <div class="todo-list">
     <ul>
-      <li class="editing">
-        <div class="view">
-          <input class="toggle" type="checkbox" />
-          <label>Buy milk</label>
-        </div>
-        <input class="edit" value="Buy milk" />
-
-        <!-- <div class="toggle"></div>
-            <label for="">hola</label> -->
-
-        <div class="destroy"></div>
-      </li>
-      <li>
-        <div class="view">
-          <input class="toggle" type="checkbox" />
-          <label>Buy milk</label>
-        </div>
-        <input class="edit" value="Buy milk" />
-
-        <div class="destroy"></div>
-      </li>
-      <li class="completed">
-        <div class="view">
-          <input class="toggle" type="checkbox" />
-          <label>Buy milk</label>
-        </div>
-        <input class="edit" value="Buy milk" />
-
-        <div class="destroy"></div>
-      </li>
+      <ItemTask v-for="item in tasks" :key="`task-${item.id}`" :task="item" />
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
-// import { Ref } from "vue-property-decorator";
+import { Options, Vue } from "vue-class-component";
+import { State } from "vuex-class";
 
-// import ToggleAll from "@/components/organisms/TaskList.vue";
+// Import componentes
+import ItemTask from "@/components/molecules/ItemTask.vue";
 
-// // @Options({
-// //   components: {
-// //     ToggleAll,
-// //   },
-// // })
+@Options({
+  components: {
+    ItemTask,
+  },
+})
 export default class TaskList extends Vue {
-  //   @Ref() toggleAll!: ToggleAll;
+  @State("tasks") tasks!: any;
 }
 </script>

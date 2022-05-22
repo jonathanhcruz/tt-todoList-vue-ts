@@ -3,7 +3,7 @@
     <div class="todo-count"><strong>1</strong> item left</div>
     <nav class="filters">
       <ul>
-        <li>
+        <li class="filters__item">
           <router-link
             :to="{ name: 'all' }"
             :class="$route?.params?.filter || 'selected'"
@@ -11,7 +11,7 @@
             All
           </router-link>
         </li>
-        <li>
+        <li class="filters__item">
           <router-link
             :to="{ name: 'filter', params: { filter: 'active' } }"
             :class="$route?.params?.filter == 'active' ? 'selected' : ''"
@@ -19,7 +19,7 @@
             Active
           </router-link>
         </li>
-        <li>
+        <li class="filters__item">
           <router-link
             :to="{ name: 'filter', params: { filter: 'completed' } }"
             :class="$route?.params?.filter == 'completed' ? 'selected' : ''"
@@ -30,9 +30,7 @@
       </ul>
     </nav>
 
-    <div class="clear-completed">
-      <button class="btn">Clear completed</button>
-    </div>
+    <button class="clear-completed">Clear completed</button>
 
     <div class="info">
       <p>
