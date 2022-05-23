@@ -52,7 +52,7 @@ import { Vue } from "vue-class-component";
 import { Action, State } from "vuex-class";
 
 export default class FooterList extends Vue {
-  @State("numberOfTasks") numberOfTasks!: any;
+  @State("numberOfTasks") numberOfTasks!: number;
   @Action("clearTasks") clearTasks!: () => void;
 
   clearTaskComplete() {

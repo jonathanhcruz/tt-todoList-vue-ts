@@ -25,6 +25,8 @@ import { Options, Vue } from "vue-class-component";
 import { Action } from "vuex-class";
 import { uuid } from "vue-uuid";
 
+import { Task } from "@/models/General";
+
 // Import componentes
 import FooterList from "@/components/organisms/FooterList.vue";
 import TaskList from "@/components/organisms/TaskList.vue";
@@ -38,7 +40,7 @@ import TaskList from "@/components/organisms/TaskList.vue";
 export default class ToDoView extends Vue {
   newTaskDescription = "";
 
-  @Action("addTask") addTask!: any;
+  @Action("addTask") addTask!: (task: Task) => void;
 
   setNewTask(): void {
     if (
@@ -55,6 +57,7 @@ export default class ToDoView extends Vue {
       id: `${uuid.v4()}`,
       description: this.newTaskDescription,
       completed: false,
+      statusTask: "read",
     });
     this.newTaskDescription = "";
     return;
