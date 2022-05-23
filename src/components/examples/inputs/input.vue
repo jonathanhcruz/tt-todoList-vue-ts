@@ -3,7 +3,7 @@
     :type="typeInput"
     :placeholder="placeholderInput"
     class="new-todo"
-    @:keyup.enter="eventInput"
+    @keyup.enter="eventInput"
   />
 </template>
 
@@ -17,6 +17,9 @@ export default class Input extends Vue {
   @Prop({ required: true, type: String }) readonly typeInput!: string;
   @Prop({ required: true, type: String }) readonly placeholderInput!: string;
   @Prop({ type: String }) readonly valueInput!: string;
-  @Prop({ type: Function }) eventInput!: (val: string) => void;
+
+  eventInput(event: KeyboardEvent): void {
+    console.log(event);
+  }
 }
 </script>

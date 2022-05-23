@@ -2,22 +2,22 @@ export default {
   isEditing: false,
   tasks: [
     {
-      id: 1,
-      title: "Task 1",
+      id: "77a9sdf7a0ds76g6a32452",
       description: "Task 1 description",
       completed: false,
+      statusTask: "read",
     },
     {
-      id: 2,
-      title: "Task 2",
+      id: "asdg7sdg7as8dg770987fa",
       description: "Task 2 description",
       completed: false,
+      statusTask: "read",
     },
     {
-      id: 3,
-      title: "Task 3",
+      id: "safg98077a0sdg0ga9sd7g",
       description: "Task 3 description",
       completed: false,
+      statusTask: "read",
     },
   ],
 };
