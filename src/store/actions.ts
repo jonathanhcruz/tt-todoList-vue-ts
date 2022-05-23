@@ -8,19 +8,12 @@ import {
   fetchDeleteTask,
 } from "../helpers/fetchApi";
 
-const filters: { [key: string]: (tasks: Array<Task>) => Array<Task> } = {
-  all: (tasks: any): Array<Task> => tasks,
-  completed: (tasks: any): Array<Task> =>
-    tasks.filter((task: Task) => task.completed),
-  active: (tasks: any): Array<Task> =>
-    tasks.filter((task: Task) => !task.completed),
-};
-
 export default {
   addTask({ commit }: { commit: Commit }, task: Task): void {
     try {
       const res = fetchNewTask(task);
       commit("ADD_TASK", res);
+      commit("UPDATE_EXISTING_CHANGES", true);
     } catch (error: any) {
       throw new Error(error.message);
     }
@@ -30,6 +23,7 @@ export default {
     try {
       const res = fetchUpdateTask(task);
       commit("UPDATE_TASK", res);
+      commit("UPDATE_EXISTING_CHANGES", true);
     } catch (error: any) {
       throw new Error(error.message);
     }
@@ -39,6 +33,7 @@ export default {
     try {
       const res = fetchDeleteTask(id);
       commit("DELETE_TASK", res);
+      commit("UPDATE_EXISTING_CHANGES", true);
     } catch (error: any) {
       throw new Error(error.message);
     }
@@ -49,13 +44,5 @@ export default {
     id: string
   ): Task | unknown {
     return state.tasks.find((task) => task.id === id);
-  },
-
-  getTaskByFilter(
-    { state }: { state: { tasks: Array<Task> } },
-    filter: string
-  ): Array<Task> {
-    const res = filters?.[filter](state.tasks);
-    return res;
   },
 };

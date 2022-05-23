@@ -2,7 +2,7 @@
   <div class="todo-list">
     <ul>
       <ItemTask
-        v-for="item in tasks"
+        v-for="item in tasksListComponent"
         :key="`task-${item.id}`"
         :taskId="item.id"
       />
@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import { Prop, Watch } from "vue-property-decorator";
-import { Action } from "vuex-class";
+import { Action, Getter, State, Mutation } from "vuex-class";
 import { Task } from "@/models/General";
 
 // Import componentes
@@ -25,12 +25,19 @@ import ItemTask from "@/components/molecules/ItemTask.vue";
   },
 })
 export default class TaskList extends Vue {
-  tasks: Task[] = [];
+  tasksListComponent: Task[] = [];
 
   @Action("getTaskByFilter") getTaskByFilter!: (filter: string) => Array<Task>;
   @Prop({ required: true, type: String }) readonly filter!: string | undefined;
+  @State("changesExist") changesExist!: Array<Task>;
+  @Getter("filterAll") filterAll!: Array<Task>;
+  @Getter("filterActive") filterActive!: Array<Task>;
+  @Getter("filterCompleted") filterCompleted!: Array<Task>;
+  @Mutation("UPDATE_EXISTING_CHANGES") updateExistingChanges!: (
+    changes: boolean
+  ) => void;
 
-  mounted() {
+  beforeMount(): void {
     this.getTasks();
   }
 
@@ -38,9 +45,21 @@ export default class TaskList extends Vue {
     this.getTasks();
   }
 
+  @Watch("changesExist") onTaskChange() {
+    this.getTasks();
+  }
+
   async getTasks() {
-    const res = await this.getTaskByFilter((this.filter as string) ?? "all");
-    this.tasks = res;
+    const fill: string = this.filter ?? "all";
+
+    const mapFilter = {
+      all: this.filterAll,
+      active: this.filterActive,
+      completed: this.filterCompleted,
+    };
+
+    this.tasksListComponent = mapFilter[fill as keyof typeof mapFilter];
+    this.updateExistingChanges(false);
   }
 }
 </script>

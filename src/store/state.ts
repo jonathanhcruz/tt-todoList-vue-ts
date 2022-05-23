@@ -1,5 +1,6 @@
 export default {
   isEditing: false,
+  changesExist: false,
   tasks: [
     {
       id: "77a9sdf7a0ds76g6a32452",
