@@ -12,7 +12,8 @@
     <div class="main">
       <div class="toggle-all"></div>
       <label for=""></label>
-      <TaskList />
+
+      <TaskList :filter="$route.params.filter" />
 
       <FooterList />
     </div>

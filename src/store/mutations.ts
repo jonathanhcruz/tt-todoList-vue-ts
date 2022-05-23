@@ -24,4 +24,11 @@ export default {
       tasks.splice(taskPosition, 1);
     }
   },
+
+  UPDATE_EXISTING_CHANGES(
+    state: { changesExist: boolean },
+    payload: boolean
+  ): void {
+    state.changesExist = payload;
+  },
 };

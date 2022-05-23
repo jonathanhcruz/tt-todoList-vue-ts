@@ -13,6 +13,7 @@ export default {
     try {
       const res = fetchNewTask(task);
       commit("ADD_TASK", res);
+      commit("UPDATE_EXISTING_CHANGES", true);
     } catch (error: any) {
       throw new Error(error.message);
     }
@@ -22,6 +23,7 @@ export default {
     try {
       const res = fetchUpdateTask(task);
       commit("UPDATE_TASK", res);
+      commit("UPDATE_EXISTING_CHANGES", true);
     } catch (error: any) {
       throw new Error(error.message);
     }
@@ -31,6 +33,7 @@ export default {
     try {
       const res = fetchDeleteTask(id);
       commit("DELETE_TASK", res);
+      commit("UPDATE_EXISTING_CHANGES", true);
     } catch (error: any) {
       throw new Error(error.message);
     }
