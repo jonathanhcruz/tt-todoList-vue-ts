@@ -1,6 +1,8 @@
 <template>
   <footer class="footer">
-    <div class="todo-count"><strong>1</strong> item left</div>
+    <div class="todo-count">
+      <strong>{{ numberOfTasks }}</strong> item left
+    </div>
     <nav class="filters">
       <ul>
         <li class="filters__item">
@@ -30,7 +32,9 @@
       </ul>
     </nav>
 
-    <button class="clear-completed">Clear completed</button>
+    <div class="clear-completed" @click="clearTaskComplete">
+      Clear completed
+    </div>
 
     <div class="info">
       <p>
@@ -45,8 +49,14 @@
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
+import { Action, State } from "vuex-class";
 
-export default class FooterList extends Vue {}
+export default class FooterList extends Vue {
+  @State("numberOfTasks") numberOfTasks!: number;
+  @Action("clearTasks") clearTasks!: () => void;
+
+  clearTaskComplete() {
+    this.clearTasks();
+  }
+}
 </script>
-
-<style></style>

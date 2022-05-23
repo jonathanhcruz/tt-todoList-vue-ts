@@ -28,13 +28,16 @@ export default class TaskList extends Vue {
   tasksListComponent: Task[] = [];
 
   @Action("getTaskByFilter") getTaskByFilter!: (filter: string) => Array<Task>;
-  @Prop({ required: true, type: String }) readonly filter!: string | undefined;
+  @Prop({ required: true, type: String }) readonly filter!: string;
   @State("changesExist") changesExist!: Array<Task>;
   @Getter("filterAll") filterAll!: Array<Task>;
   @Getter("filterActive") filterActive!: Array<Task>;
   @Getter("filterCompleted") filterCompleted!: Array<Task>;
   @Mutation("UPDATE_EXISTING_CHANGES") updateExistingChanges!: (
     changes: boolean
+  ) => void;
+  @Mutation("SET_NUMBES_OF_TASKS") setNumberOfTasks!: (
+    numberOfTasks: number
   ) => void;
 
   beforeMount(): void {
@@ -50,7 +53,7 @@ export default class TaskList extends Vue {
   }
 
   async getTasks() {
-    const fill: string = this.filter ?? "all";
+    const fill: string = this.filter;
 
     const mapFilter = {
       all: this.filterAll,
@@ -59,6 +62,8 @@ export default class TaskList extends Vue {
     };
 
     this.tasksListComponent = mapFilter[fill as keyof typeof mapFilter];
+
+    this.setNumberOfTasks(this.tasksListComponent.length);
     this.updateExistingChanges(false);
   }
 }

@@ -5,6 +5,7 @@ a {
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 3px;
+    user-select: none;
 
     &:hover {
         border-color: rgba(175, 47, 47, 0.1);
