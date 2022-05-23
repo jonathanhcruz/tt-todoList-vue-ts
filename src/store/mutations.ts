@@ -31,4 +31,15 @@ export default {
   ): void {
     state.changesExist = payload;
   },
+
+  CLEAR_TASKS(state: { tasks: Array<Task> }): void {
+    const filterTasksCompleted = state.tasks.filter(
+      (item) => item.completed === false
+    );
+    state.tasks = [...filterTasksCompleted];
+  },
+
+  SET_NUMBES_OF_TASKS(state: { numberOfTasks: number }, payload: number): void {
+    state.numberOfTasks = payload;
+  },
 };

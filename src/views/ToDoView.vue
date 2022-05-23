@@ -13,7 +13,7 @@
       <div class="toggle-all"></div>
       <label for=""></label>
 
-      <TaskList :filter="$route.params.filter" />
+      <TaskList :filter="$route.params.filter ?? 'all'" />
 
       <FooterList />
     </div>

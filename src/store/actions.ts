@@ -39,6 +39,11 @@ export default {
     }
   },
 
+  clearTasks({ commit }: { commit: Commit }) {
+    commit("CLEAR_TASKS");
+    commit("UPDATE_EXISTING_CHANGES", true);
+  },
+
   getTaskById(
     { state }: { state: { tasks: Array<Task> } },
     id: string
