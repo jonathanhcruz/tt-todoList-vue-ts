@@ -1,7 +1,11 @@
 <template>
   <div class="todo-list">
     <ul>
-      <ItemTask v-for="item in tasks" :key="`task-${item.id}`" :task="item" />
+      <ItemTask
+        v-for="item in tasks"
+        :key="`task-${item.id}`"
+        :taskId="item.id"
+      />
     </ul>
   </div>
 </template>

@@ -5,7 +5,8 @@
       type="text"
       placeholder="what chores do you have to do?"
       class="todoapp__new-todo"
-      @keyup.enter="printEvent"
+      v-model.trim="newTaskDescription"
+      @keyup.enter="setNewTask"
     />
 
     <div class="main">
@@ -20,6 +21,8 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { Action } from "vuex-class";
+import { uuid } from "vue-uuid";
 
 // Import componentes
 import FooterList from "@/components/organisms/FooterList.vue";
@@ -32,8 +35,28 @@ import TaskList from "@/components/organisms/TaskList.vue";
   },
 })
 export default class ToDoView extends Vue {
-  printEvent(event: KeyboardEvent) {
-    console.log(event);
+  newTaskDescription = "";
+
+  @Action("addTask") addTask!: any;
+
+  setNewTask(): void {
+    if (
+      this.newTaskDescription.trim() === "" ||
+      this.newTaskDescription.length < 4
+    ) {
+      /**
+       * TODO: Show error message
+       */
+      return;
+    }
+
+    this.addTask({
+      id: `${uuid.v4()}`,
+      description: this.newTaskDescription,
+      completed: false,
+    });
+    this.newTaskDescription = "";
+    return;
   }
 }
 </script>
