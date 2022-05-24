@@ -27,12 +27,11 @@ import { Action, State } from "vuex-class";
 // Import componentes
 import NavFooter from "@/components/molecules/NavFooter.vue";
 
-Options({
+@Options({
   components: {
     NavFooter,
   },
-});
-
+})
 export default class FooterList extends Vue {
   @State("numberOfTasks") numberOfTasks!: number;
   @Action("clearTasks") clearTasks!: () => void;

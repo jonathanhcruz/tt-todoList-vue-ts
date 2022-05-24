@@ -60,6 +60,7 @@ export default class ToDoView extends Vue {
       completed: false,
       statusTask: "read",
     });
+
     this.newTaskDescription = "";
     return;
   }
