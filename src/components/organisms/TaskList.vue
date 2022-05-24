@@ -14,10 +14,12 @@
 import { Options, Vue } from "vue-class-component";
 import { Prop, Watch } from "vue-property-decorator";
 import { Action, Getter, State, Mutation } from "vuex-class";
-import { Task } from "@/models/General";
 
 // Import componentes
 import ItemTask from "@/components/molecules/ItemTask.vue";
+
+// Models
+import { Task } from "@/models/General";
 
 @Options({
   components: {
