@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import ToDoView from "../views/ToDoView.vue";
+import TodoView from "../views/TodoView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "all",
-    component: ToDoView,
+    component: TodoView,
   },
   {
     path: "/:filter",
     name: "filter",
-    component: ToDoView,
+    component: TodoView,
   },
 ];
 

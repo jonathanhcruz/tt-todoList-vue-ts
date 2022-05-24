@@ -1,4 +1,4 @@
-import { Task } from "../models/General";
+import { Task } from "@/models/General";
 
 export const fetchNewTask = (newTask: Task): Promise<Task[]> | Error | Task => {
   /**

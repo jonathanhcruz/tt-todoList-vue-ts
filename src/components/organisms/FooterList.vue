@@ -3,34 +3,7 @@
     <div class="todo-count">
       <strong>{{ numberOfTasks }}</strong> item left
     </div>
-    <nav class="filters">
-      <ul>
-        <li class="filters__item">
-          <router-link
-            :to="{ name: 'all' }"
-            :class="$route?.params?.filter || 'selected'"
-          >
-            All
-          </router-link>
-        </li>
-        <li class="filters__item">
-          <router-link
-            :to="{ name: 'filter', params: { filter: 'active' } }"
-            :class="$route?.params?.filter == 'active' ? 'selected' : ''"
-          >
-            Active
-          </router-link>
-        </li>
-        <li class="filters__item">
-          <router-link
-            :to="{ name: 'filter', params: { filter: 'completed' } }"
-            :class="$route?.params?.filter == 'completed' ? 'selected' : ''"
-          >
-            Completed
-          </router-link>
-        </li>
-      </ul>
-    </nav>
+    <NavFooter />
 
     <div class="clear-completed" @click="clearTaskComplete">
       Clear completed
@@ -48,8 +21,17 @@
 </template>
 
 <script lang="ts">
-import { Vue } from "vue-class-component";
+import { Vue, Options } from "vue-class-component";
 import { Action, State } from "vuex-class";
+
+// Import componentes
+import NavFooter from "@/components/molecules/NavFooter.vue";
+
+Options({
+  components: {
+    NavFooter,
+  },
+});
 
 export default class FooterList extends Vue {
   @State("numberOfTasks") numberOfTasks!: number;

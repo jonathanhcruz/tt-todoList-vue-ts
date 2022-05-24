@@ -1,5 +1,5 @@
 import { Commit } from "vuex";
-import { Task } from "../models/General";
+import { Task } from "@/models/General";
 
 // helpers
 import {
