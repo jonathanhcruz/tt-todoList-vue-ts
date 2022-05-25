@@ -10,14 +10,7 @@
       Clear completed
     </div>
 
-    <div class="info">
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s.
-        <a> Lorem Ipsum </a>
-      </p>
-    </div>
+    <InfoFooter />
   </footer>
 </template>
 
@@ -27,10 +20,12 @@ import { Action, State } from "vuex-class";
 
 // Import componentes
 import NavFooter from "@/components/molecules/NavFooter.vue";
+import InfoFooter from "@/components/molecules/InfoFooter.vue";
 
 @Options({
   components: {
     NavFooter,
+    InfoFooter,
   },
 })
 export default class FooterList extends Vue {
