@@ -19,8 +19,6 @@ You can use `npm run test:watch` or `yarn test:watch`
 
 #### Important 
 
-I've tested for projects that didn't use a global state manager like vuex, but this is the first time I've tested an environment with these features.
-
 I used vue with decorators because they force me to use vue in a more optimal way.
 
 I also use Typescript since I can have better control of the data that goes in and out of the functions and components, this reduces the probability of typos and is more efficient.

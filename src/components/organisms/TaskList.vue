@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import { Prop, Watch } from "vue-property-decorator";
-import { Action, Getter, State, Mutation } from "vuex-class";
+import { Getter, State, Mutation } from "vuex-class";
 
 // Import componentes
 import ItemTask from "@/components/molecules/ItemTask.vue";

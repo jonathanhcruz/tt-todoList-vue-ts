@@ -14,15 +14,15 @@
       <label for=""></label>
 
       <TaskList :filter="$route.params.filter ?? 'all'" />
-
-      <FooterList />
     </div>
+
+    <FooterList />
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { Action } from "vuex-class";
+import { Action, State } from "vuex-class";
 import { uuid } from "vue-uuid";
 
 // Models
@@ -41,6 +41,7 @@ import TaskList from "@/components/organisms/TaskList.vue";
 export default class ToDoView extends Vue {
   newTaskDescription = "";
 
+  @State("numberOfTasks") numberOfTasks!: number;
   @Action("addTask") addTask!: (task: Task) => void;
 
   setNewTask(): void {

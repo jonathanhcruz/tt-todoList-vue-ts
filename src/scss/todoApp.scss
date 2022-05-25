@@ -15,18 +15,16 @@
 	 */
 	 @import './components/atoms/inputs/newTodo.scss';
 
-	.main {
-		position: relative;
-		z-index: 2;
-		border-top: 1px solid #e6e6e6;
-	
-		/**
-		 * Styles components of the main section
-		 */
-		@import './components/atoms/toggleAll.scss';
-		@import './components/organisms/todoList.scss';
-		@import './components/organisms/footer.scss';
-	}
+
+	/**
+	 * Style main section
+	 */
+	 @import "./components/organisms/main.scss";
+	 
+	 /**
+	  * Style footer section
+	  */
+	@import './components/organisms/footer.scss';
 }
 
 
