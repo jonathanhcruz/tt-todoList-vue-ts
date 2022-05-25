@@ -29,7 +29,6 @@ import { Task } from "@/models/General";
 export default class TaskList extends Vue {
   tasksListComponent: Task[] = [];
 
-  @Action("getTaskByFilter") getTaskByFilter!: (filter: string) => Array<Task>;
   @Prop({ required: true, type: String }) readonly filter!: string;
   @State("changesExist") changesExist!: Array<Task>;
   @Getter("filterAll") filterAll!: Array<Task>;
@@ -43,15 +42,15 @@ export default class TaskList extends Vue {
   ) => void;
 
   beforeMount(): void {
-    this.getTasks();
+    this.getTasks;
   }
 
   @Watch("filter") onFilterChange() {
-    this.getTasks();
+    this.getTasks;
   }
 
   @Watch("changesExist") onTaskChange() {
-    this.getTasks();
+    this.getTasks;
   }
 
   async getTasks() {

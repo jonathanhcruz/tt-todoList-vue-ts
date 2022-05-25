@@ -62,7 +62,6 @@ export default class ItemTask extends Vue {
 
   async setTaskInComponent(): Promise<void> {
     this.task = await this.getTaskById(this.taskId);
-    // console.log(this.task);
   }
 
   /**

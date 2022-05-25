@@ -5,7 +5,6 @@ import TodoView from "@/views/TodoView.vue";
 import vuex from "vuex";
 import actions from "@/store/actions";
 import mutations from "@/store/mutations";
-import getters from "@/store/getters";
 import state from "@/store/state";
 
 describe("TodoView.vue", () => {
@@ -17,7 +16,6 @@ describe("TodoView.vue", () => {
     store = new vuex.Store({
       actions,
       mutations,
-      getters,
       state,
     });
 
@@ -35,15 +33,14 @@ describe("TodoView.vue", () => {
 
   it("Create new task todoView.vue", async () => {
     const dataTest = {
-      id: "1",
-      title: "test",
+      id: "3",
       description: "test",
-      status: "test",
+      completed: false,
+      statusTask: "read",
     };
 
     await store.dispatch("addTask", dataTest);
 
-    expect(true).toBe(true);
     expect(state.tasks).toEqual([dataTest]);
   });
 });
