@@ -1,29 +1,35 @@
-# example
+# Todo App
 
-## Project setup
-```
-yarn install
-```
+this application is created with the intention of showing my skills with vue and how I can adapt to different ways of working.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Install project locally
 
-### Compiles and minifies for production
-```
-yarn build
-```
+#### 1. Clone this project to your local.
+#### 2. Install dependencies.
 
-### Run your unit tests
-```
-yarn test:unit
-```
+You can use `npm i` or `yarn`
 
-### Lints and fixes files
-```
-yarn lint
-```
+#### 2. Run project
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+You can use `npm run serve` or `yarn serve`
+
+#### 2. Run tests
+
+You can use `npm run test:watch` or `yarn test:watch`
+
+#### Important 
+
+I've tested for projects that didn't use a global state manager like vuex, but this is the first time I've tested an environment with these features.
+
+I used vue with decorators because they force me to use vue in a more optimal way.
+
+I also use Typescript since I can have better control of the data that goes in and out of the functions and components, this reduces the probability of typos and is more efficient.
+
+Thanks...
+
+# Views
+
+
+
+
+
