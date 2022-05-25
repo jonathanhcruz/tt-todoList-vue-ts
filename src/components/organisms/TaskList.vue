@@ -64,7 +64,8 @@ export default class TaskList extends Vue {
 
     this.tasksListComponent = mapFilter[fill as keyof typeof mapFilter];
 
-    this.setNumberOfTasks(this.tasksListComponent.length);
+    const numberOfTasks = this.tasksListComponent.length;
+    this.setNumberOfTasks(numberOfTasks);
     this.updateExistingChanges(false);
   }
 }
