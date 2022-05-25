@@ -29,9 +29,9 @@ Thanks...
 
 # Views
 
-<img src="./src/assets/screens/c1.png" width="250px" style="margin: 2px 10px;"><img src="./src/assets/screens/c2.png" width="250px" style="margin: 2px 10px;">
-<img src="./src/assets/screens/c3.png" width="250px" style="margin: 2px 10px;"><img src="./src/assets/screens/c4.png" width="250px" style="margin: 2px 10px;">
-<img src="./src/assets/screens/c5.png" width="250px" style="margin: 2px 10px;">
+<img src="./src/assets/screens/c1.png" width="300px"><img src="./src/assets/screens/c2.png" width="300px">
+<img src="./src/assets/screens/c3.png" width="300px"><img src="./src/assets/screens/c4.png" width="300px" >
+<img src="./src/assets/screens/c5.png" width="300px">
 
 
 
