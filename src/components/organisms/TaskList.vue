@@ -42,15 +42,15 @@ export default class TaskList extends Vue {
   ) => void;
 
   beforeMount(): void {
-    this.getTasks;
+    this.getTasks();
   }
 
   @Watch("filter") onFilterChange() {
-    this.getTasks;
+    this.getTasks();
   }
 
   @Watch("changesExist") onTaskChange() {
-    this.getTasks;
+    this.getTasks();
   }
 
   async getTasks() {
