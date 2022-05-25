@@ -3,6 +3,7 @@
     <div class="todo-count">
       <strong>{{ numberOfTasks }}</strong> item left
     </div>
+
     <NavFooter />
 
     <div class="clear-completed" @click="clearTaskComplete">

@@ -29,7 +29,6 @@ import { Task } from "@/models/General";
 export default class TaskList extends Vue {
   tasksListComponent: Task[] = [];
 
-  @Action("getTaskByFilter") getTaskByFilter!: (filter: string) => Array<Task>;
   @Prop({ required: true, type: String }) readonly filter!: string;
   @State("changesExist") changesExist!: Array<Task>;
   @Getter("filterAll") filterAll!: Array<Task>;
@@ -65,7 +64,8 @@ export default class TaskList extends Vue {
 
     this.tasksListComponent = mapFilter[fill as keyof typeof mapFilter];
 
-    this.setNumberOfTasks(this.tasksListComponent.length);
+    const numberOfTasks: number = this.tasksListComponent?.length ?? 0;
+    this.setNumberOfTasks(numberOfTasks);
     this.updateExistingChanges(false);
   }
 }
